@@ -27,8 +27,15 @@ name = ""
 version = ""
 description = ""
 authors = [
-    {name = "DarriusChen", email = "darriuschen0926@gmail.com"},
+    {name = "shannon1023", email = "shan10231997@gmail.com"},
 ]
-dependencies = []
+dependencies = [
+    "sqlalchemy>=2.0.16",
+    "fastapi>=0.97.0",
+    "uvicorn>=0.22.0",
+    "psycopg2-binary>=2.9.6",
+    "jupyterlab>=4.0.2",
+    "commitizen>=3.5.2",
+]
 requires-python = ">=3.11"
 license = {text = "MIT"}
