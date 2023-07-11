@@ -33,9 +33,17 @@ def get_company_tag(db: Session, company_id: int):
     company_detail = (
         db.query(CompanyInfo).filter(CompanyInfo.company_id == company_id).all()
     )
-    cc = dict(company_detail)
+    new = {
+        "company_id": company_detail[0].company_id,
+        "name": company_detail[0].name,
+        "url": company_detail[0].url,
+        "description": company_detail[0].description,
+        "Products": [tag.tag_name for tag in tag_company],
+    }
+    # for i in tag_company:
+    #     company_detail[0]["tag"].update(i)
 
-    return cc
+    return new
     # [i for i in tag_company]
 
     # "name" : company_detail.compaｃny_name,
@@ -51,7 +59,17 @@ def get_tag_company(db: Session, tag_id: int):
     company_tag = (
         db.query(CompanyInfo).filter(CompanyInfo.company_id.in_(tag_id_detail)).all()
     )
-    return company_tag.company_id, company_tag.company_name
+    return company_tag
+
+
+# category對應的tag_name
+def category_tag(db: Session, category: str):
+    tag_name = (
+        db.query(ProductInfo.tag_name)
+        .filter(ProductInfo.tag_category == category)
+        .all()
+    )
+    return tag_name
 
 
 # #獲得所有公司資料
@@ -93,7 +111,11 @@ def create_company(db: Session, company: CompanyCreate):
 
 # 新增產品Tag_name和Tag_id(OK)
 def create_product(db: Session, product: ProductCreate):
-    db_product = ProductInfo(tag_id=product.tag_id, tag_name=product.tag_name)
+    db_product = ProductInfo(
+        tag_id=product.tag_id,
+        tag_name=product.tag_name,
+        tag_category=product.tag_category,
+    )
     db.add(db_product)
     db.commit()
     db.refresh(db_product)
