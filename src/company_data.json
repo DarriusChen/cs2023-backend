@@ -1,0 +1,52 @@
+[
+    {
+        "name": "TrendMicro",
+        "url": "https://www.trendmicro.com/zh_tw/business.html",
+        "description": "趨勢科技是企業雲端防護、XDR 以及網路資安平台解決方案的全球領導廠商，專門為企業環境、資料中心、雲端環境、網路及端點提供最佳的防護。"
+    },
+    {
+        "name": "CyberReason",
+        "url": "https://www.cybereason.com/",
+        "description": "Cybereason is the champion for today’s cyber defenders with future-ready attack protection that extends from the endpoint, to the enterprise, to everywhere."
+    },
+    {
+        "name": "CyCraft",
+        "url": "https://cycraft.com/zh-hant/",
+        "description": "奧義智慧以創新 AI 技術自動化資安防護，內建端點 EDR、情資 CTI、網路 TIG 並整合建構新一代 AI 資安戰情中心，獲得逾五十個政府機關、警政、國防單位，以及三成金融機構、數十家高科技與關鍵領域龍頭企業的信賴，市佔率國內第一。"
+    },
+    {
+        "name": "CHT Security",
+        "url": "https://www.chtsecurity.com/",
+        "description": "中華資安國際擁有多年的資訊安全攻防實戰經驗，統合研發、實務、技術能力，提供事前檢測、事中監控應變、事後鑑識回復的資安產品及服務，一站式滿足政府及企業的資安需求。"
+    },
+    {
+        "name": "CheckPoint",
+        "url": "https://www.checkpoint.com/tw/",
+        "description": "善用 Infinity-Vision 的統合安全管理功能達到網路安全防護的黃金標準。 透過網路、雲端、行動裝置、端點以及物聯網裝置一體適用的單一介面，運用統合原則協助您的組織有效防範漏洞並管理整個安全環境。"
+    },
+    {
+        "name": "TeamT5",
+        "url": "https://teamt5.org/tw/",
+        "description": "我們堅持威脅情資是資安防禦的基石，為企業提供行動取向的在地情資，協助企業預見攻擊，提前部署防禦策略，降低損失風險。"
+    },
+    {
+        "name": "CrowdStrike",
+        "url": "https://www.crowdstrike.com/zh/",
+        "description": "取得能整合新一代防毒軟體 (NGAV)、端點偵測及回應 (EDR)、裝置控制、弱點評估及 IT 衛生的單一雲端傳遞解決方案。"
+    },
+    {
+        "name": "Kaspersky",
+        "url": "https://www.kaspersky.com.tw/",
+        "description": "我們將一流的安全知識轉化成給客戶的真誠防護，讓您能安全又安心地於日常生活和工作環境中運用科技。"
+    },
+    {
+        "name": "Neithnet",
+        "url": "https://www.neithnet.com/en/",
+        "description": "騰曜網路科技以威脅情資為核心，延伸至 MDR 即時監控、網路流量分析、 DNS Security、資安健檢、各式資安事件處理與鑑識服務等，協助客戶防範無所不在的網路威脅。"
+    },
+    {
+        "name": "Netron",
+        "url": "https://www.netron.asia/tw",
+        "description": "Netron 網創資訊是一家對網路與雲端運算具有高度熱忱的夥伴一起創立的雲端服務公司，擁有為企業客戶建構電商與遊戲網站的經驗，並提供從架構規劃、機房選擇、設備採購、雲端儲存到資安解決方案等雲端運算服務，為您做全方位的雲端規劃，讓您為用戶提供優質的互聯網訪問體驗。"
+    }
+]

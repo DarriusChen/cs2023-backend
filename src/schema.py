@@ -8,11 +8,11 @@ from pydantic import BaseModel
 
 # 輸入的公司名稱
 class CompanyBase(BaseModel):
-    company_id: int
+    #company_id: int
     name: str
     url: str | None = None
     description: str | None = None
-    tag_id: int
+    tag_id: List[int] = [] 
 
 
 class CompanyCreate(CompanyBase):
@@ -21,7 +21,6 @@ class CompanyCreate(CompanyBase):
 
 # 輸入的商品名稱
 class ProductBase(BaseModel):
-    tag_id: int
     tag_name: str
     tag_category: str
 
@@ -30,10 +29,21 @@ class ProductCreate(ProductBase):
     pass
 
 
-# response Model
-class ComTagFormat(BaseModel):
+
+
+class NewCompany(BaseModel):
     company_id: int
-    company_name: str
+    name: str | None = None
     url: str | None = None
     description: str | None = None
-    # tags: list[str] = []
+    
+
+class AllNewCompany(BaseModel):
+    company_id: int
+    name: str | None = None
+    url: str | None = None
+    description: str | None = None
+    tag_ids: List[int] | None = None
+
+
+
