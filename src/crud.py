@@ -2,10 +2,9 @@
 # 以fastapi的角度寫入資料庫
 from typing import List
 from fastapi.exceptions import HTTPException
-from src import model
-from sqlalchemy.orm import Session, session
-from src.model import ProductInfo, CompanyInfo, ComTag, TagFun, FunInfo
-from src.schema import CompanyCreate, ProductCreate, NewCompany, AllNewCompany
+from sqlalchemy.orm import Session
+from src.model import ProductInfo, CompanyInfo, ComTag, FunInfo
+from src.schema import CompanyCreate, ProductCreate, NewCompany, AllNewCompany, CompareCompany
 import json
 
 
@@ -58,14 +57,14 @@ def get_tag_company(db: Session, tag_id: int):
 
 # category對應的tag_name
 def category_tag(db: Session):
-    category_name = db.query(ProductInfo.tag_category).all()
+    category_name = db.query(ProductInfo.tag_category).distinct().all()
     c_names = [t[0] for t in category_name]
     c_new_list = []
     for res in c_names:
         c_tag_name = (
-            db.query(ProductInfo.tag_name).filter(ProductInfo.tag_category == res).all()
+            db.query(ProductInfo.tag_name).filter(ProductInfo.tag_category == res).distinct().all()
         )
-        new_category = {res: [i.tag_name for i in c_tag_name]}
+        new_category = {res: list(set(i.tag_name for i in c_tag_name))}
         c_new_list.append(new_category)
     return c_new_list
 
@@ -229,28 +228,7 @@ def update_company_tags(company_id: int, tag_ids: List[int], db: Session):
 
     return response
 
-#新增加Tags
-def add_company_tags(company_id: int, tag_ids: List[int], db: Session):
-    try:
-        # Find the company with the given company_id
-        company = db.query(CompanyInfo).filter(CompanyInfo.company_id == company_id).first()
 
-        if company:
-            # Add new tag associations without removing existing ones
-            for tag_id in tag_ids:
-                db_add_companyID = ComTag(company_id=company_id, tag_id=tag_id)
-                db.add(db_add_companyID)
-            
-            db.commit()
-            response = {"message": "Tags updated successfully"}
-        else:
-            response = {"message": "Company not found"}
-
-    except Exception as e:
-        print(e)
-        response = {"message": "An error occurred"}
-
-    return response
 
 #更新公司所有資訊跟TAGS
 def update_company_and_tags(
@@ -272,7 +250,7 @@ def update_company_and_tags(
 
         db.query(ComTag).filter(ComTag.company_id == new_company.company_id).delete()
 
-        tags_added = False  # 用于跟踪是否添加了任何标签
+        tags_added = False
 
         for tag_id in new_company.tag_ids:
             tag_exists = db.query(ProductInfo).filter(ProductInfo.tag_id == tag_id).first()
@@ -294,3 +272,38 @@ def update_company_and_tags(
         raise HTTPException(status_code=500, detail="An error occurred while updating company and tags")
 
     return response
+
+#比較表中所有符合條件的公司
+def compare_table(compare_company: CompareCompany, db: Session):
+    result = []
+
+    for company_name in compare_company.company_name:
+        id_detail = db.query(CompanyInfo.company_id).filter(CompanyInfo.name == company_name).first()
+        tag_id_detail = db.query(ProductInfo.tag_id).filter(ProductInfo.tag_name == compare_company.tag_name).first() 
+        function_id_detail = db.query(ComTag.function_id).filter(ComTag.tag_id == tag_id_detail & ComTag.company_id == id_detail).all()
+        function_all = db.query(FunInfo).filter(FunInfo.function_id.in_(function_id_detail)).all()
+
+        company_result = {
+            "tag_name": compare_company.tag_name,
+            "company_name": company_name,
+            "Functions": [fun.function_name for fun in function_all],
+        }
+        result.append(company_result)
+
+    return result
+    # id_detail = db.query(CompanyInfo.company_id).filter(CompanyInfo.name == compare.company_name).first()
+    # tag_id_detail = db.query(ProductInfo.tag_id).filter(ProductInfo.tag_name == compare.tag_name).first() 
+    # function_id_detail = db.query(ComTag.function_id).filter(ComTag.tag_id == tag_id_detail & ComTag.company_id == id_detail ).all()
+    # function_all = db.query(FunInfo).filter(FunInfo.function_id.in_(function_id_detail)).all()
+    # # id_detail = [result.tag_id for result in id_detail]
+    # # tag_company = db.query(FunInfo).filter(FunInfo.function_id.in_(function_id_detail)).all()
+    # # company_detail = (
+    # #     db.query(CompanyInfo).filter(CompanyInfo.company_id == company_id).all()
+    # # )
+    
+    # sum = {
+    #     "tag_name": compare.tag_name,
+    #     "company_name": compare.company_name,
+    #     "Functions" : [fun.function_name for fun in function_all],
+    # }
+    # return sum

@@ -45,5 +45,6 @@ class AllNewCompany(BaseModel):
     description: str | None = None
     tag_ids: List[int] | None = None
 
-
-
+class CompareCompany(BaseModel):
+    company_name: List[str] | None = None
+    tag_name: str | None = None

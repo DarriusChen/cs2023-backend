@@ -32,6 +32,7 @@ class ComTag(Base):
     index = Column(Integer, primary_key=True, autoincrement=True)
     company_id = Column(Integer, ForeignKey("Company_Detail.company_id"))
     tag_id = Column(Integer, ForeignKey("Product_Detail.tag_id"), index=True)
+    function_id = Column(Integer, ForeignKey("Function_Detail.function_id"), index=True)
 
 
 
@@ -71,5 +72,5 @@ class TagFun(Base):
 
 class FunInfo(Base):
     __tablename__ = "Function_Detail"
-    function_id = Column(Integer, primary_key=True)
+    function_id = Column(Integer, primary_key=True, autoincrement=True, index=True)
     function_name = Column(String(length=1000))

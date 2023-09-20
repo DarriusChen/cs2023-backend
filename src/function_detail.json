@@ -4,7 +4,114 @@
         "functiokn_name": "靜態分析檢測"
     },
     {
-        "function_id": 1,
-        "functiokn_name": "靜態分析檢測"
+        "function_id": 2,
+        "functiokn_name": "偵測惡意行為/檔案"
+    },
+    {
+        "function_id": 3,
+        "functiokn_name": "沙箱分析"
+    },
+    {
+        "function_id": 4,
+        "functiokn_name": "搜集跨端點資訊並互相關聯"
+    },
+    {
+        "function_id": 5,
+        "functiokn_name": "日誌收容與管理"
+    },
+    {
+        "function_id": 6,
+        "functiokn_name": "分析日誌與識別威脅危險"
+    },
+    {
+        "function_id": 7,
+        "functiokn_name": "自訂掃描規則"
+    },
+    {
+        "function_id": 8,
+        "functiokn_name": "實時告警"
+    },
+    {
+        "function_id": 9,
+        "functiokn_name": "告警通知(Slack, Email)"
+    },
+    {
+        "function_id": 10,
+        "functiokn_name": "修復/阻擋遭受威脅的端點"
+    },
+    {
+        "function_id": 11,
+        "functiokn_name": "阻擋惡意行為 (whole operation) 而非以單一告警為單位"
+    },
+    {
+        "function_id": 12,
+        "functiokn_name": "攻擊行為結束前直接阻擋"
+    },
+    {
+        "function_id": 13,
+        "functiokn_name": "整合多方來源情資"
+    },
+    {
+        "function_id": 14,
+        "functiokn_name": "關聯攻擊事件的IOC, IOB 提出告警"
+    },
+    {
+        "function_id": 15,
+        "functiokn_name": "透過預測攻擊行為來提早預防"
+    },
+    {
+        "function_id": 16,
+        "functiokn_name": "搜集威脅的相關事證"
+    },
+    {
+        "function_id": 17,
+        "functiokn_name": "提供攻擊流程圖"
+    },
+    {
+        "function_id": 18,
+        "functiokn_name": "提供攻擊者資訊"
+    },
+    {
+        "function_id": 19,
+        "functiokn_name": "攻擊行為關聯到Mitre TTPs"
+    },
+    {
+        "function_id": 20,
+        "functiokn_name": "監控檔案完整性、異常行為"
+    },
+    {
+        "function_id": 21,
+        "functiokn_name": "追蹤設備安全，抓出錯誤配置"
+    },
+    {
+        "function_id": 22,
+        "functiokn_name": "檢查系統合規性"
+    },
+    {
+        "function_id": 23,
+        "functiokn_name": "關聯用戶主機及公開漏洞，建立CVE 資料庫"
+    },
+    {
+        "function_id": 24,
+        "functiokn_name": "集中在一個console上管理所有端點"
+    },
+    {
+        "function_id": 25,
+        "functiokn_name": "整合/支援多種環境或平台"
+    },
+    {
+        "function_id": 26,
+        "functiokn_name": "EDR, XDR 即時資料存儲"
+    },
+    {
+        "function_id": 27,
+        "functiokn_name": "可查看 raw data"
+    },
+    {
+        "function_id": 28,
+        "functiokn_name": "提供偵測結果report"
+    },
+    {
+        "function_id": 29,
+        "functiokn_name": "專業資安團隊提供research insight"
     }
-]

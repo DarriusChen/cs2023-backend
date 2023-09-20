@@ -12,7 +12,7 @@ from src import crud, model
 from src.model import ProductInfo, CompanyInfo, ComTag
 
 # 檢查輸入的資料格式是否正確
-from src.schema import CompanyCreate, ProductCreate, NewCompany, AllNewCompany
+from src.schema import CompanyCreate, ProductCreate, NewCompany, AllNewCompany, CompareCompany
 
 # 連接到資料庫的位置`05
 # `
@@ -64,7 +64,7 @@ def get_db():
         db.close()
 
 ######先把資料匯入postgresql裡######
-# db = SessionLocal()
+db = SessionLocal()
 # 讀取JSON檔案中的數據
 def initialize_data(db: Session):
     with open('src/company_data.json', 'r') as json_file:
@@ -125,8 +125,13 @@ def get_product(tag_id: int, db: Session = Depends(get_db)):
         return crud.get_product(db, tag_id)
     else:
         return False
-
-
+#給公司名稱跟Tag找對應的
+@app.get("/getProduct/")
+def get_product(tag_id: int, db: Session = Depends(get_db)):
+    if crud.get_product(db, tag_id):
+        return crud.get_product(db, tag_id)
+    else:
+        return False
 
 # # 輸入company_id找他有的tag內容
 # @app.get("/getComTag/", description="輸入company_id找他有的tag內容")
@@ -187,6 +192,13 @@ def update_company_and_tags(new_company:AllNewCompany, db: Session = Depends(get
 def add_company_tags(company_id: int, tag_ids: list[int], db: Session = Depends(get_db)):
     if crud.add_company_tags(company_id, tag_ids, db):
         return "Success"
+    else:
+        return False
+    
+@app.put("/compareCompanies/" ,description="顯示多個公司單個Tag的比較")
+def compare_table(compare_company:CompareCompany, db: Session = Depends(get_db)):
+    if crud.compare_table(compare_company, db):
+        return crud.compare_table(compare_company, db)
     else:
         return False
 

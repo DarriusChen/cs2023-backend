@@ -48,5 +48,11 @@
         "name": "Netron",
         "url": "https://www.netron.asia/tw",
         "description": "Netron 網創資訊是一家對網路與雲端運算具有高度熱忱的夥伴一起創立的雲端服務公司，擁有為企業客戶建構電商與遊戲網站的經驗，並提供從架構規劃、機房選擇、設備採購、雲端儲存到資安解決方案等雲端運算服務，為您做全方位的雲端規劃，讓您為用戶提供優質的互聯網訪問體驗。"
+    },
+    {
+        "name": "Anomali",
+        "url": "https://www.anomali.com/",
+        "description": "The Anomali Security Operations Platform transforms security by empowering defenders to monitor and preemptively mitigate threats, and executives to navigate global cyber turbulence with confidence."
+       
     }
 ]

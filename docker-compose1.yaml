@@ -12,7 +12,7 @@ services:
             - "8000:8000"
 
     db:
-        image: postgres:latest
+        image: postgres:16.0
         restart: always
         environment:
             POSTGRES_DB: postgres

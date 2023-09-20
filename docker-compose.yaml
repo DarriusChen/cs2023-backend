@@ -1,4 +1,3 @@
-
 version: "3.7"
 services:
   db:
@@ -27,4 +26,3 @@ volumes:
 networks:
     backend-network:
         driver: bridge
-

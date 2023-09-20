@@ -1,0 +1,24 @@
+{
+    "tag_name": "端點檢測分析",
+    "tag_category": "檢測回應"
+},
+{
+    "tag_name": "資產設備檢測",
+    "tag_category": "設備配置"
+},
+{
+    "tag_name": "威脅情資",
+    "tag_category": "威脅情資"
+},
+{
+    "tag_name": "雲端託管",
+    "tag_category": "設備配置"
+},
+{
+    "tag_name": "防火牆",
+    "tag_category": "系統防護"
+},
+{
+    "tag_name": "身份識別",
+    "tag_category": "系統防護"
+},
